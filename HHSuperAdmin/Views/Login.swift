@@ -17,32 +17,49 @@ struct Login: View {
     
     var body: some View {
         
-        VStack(alignment: .center) {
+        ZStack {
+            LoginBackground()
+                .edgesIgnoringSafeArea(.all)
             
-            Text(api.errorMessage ?? " ")
-                .font(.caption)
-                .foregroundColor(.red)
-            
-            TextField("Username", text: $username)
-                .frame(maxWidth: 150)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .autocapitalization(.none)
-                .disableAutocorrection(true)
-            
-            SecureField("Password", text: $password)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .frame(maxWidth: 150)
-            
-            Button(action: {
-                self.api.login(username: self.username, password: self.password)
-            }) {
-                Text("Login")
+            VStack(alignment: .center) {
+                
+                Text(api.errorMessage ?? " ")
+                    .font(.caption)
+                    .foregroundColor(.red)
+                
+                TextField("Username", text: $username)
+                    .frame(maxWidth: 150)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
+                
+                SecureField("Password", text: $password)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .frame(maxWidth: 150)
+                
+                Button(action: {
+                    self.api.login(username: self.username, password: self.password)
+                }) {
+                    Text("Login")
+                }.padding()
+                    .aspectRatio(1.0, contentMode: .fill)
+                    .foregroundColor(.white)
+                    .background(Color.black)
+                    .clipShape(Circle())
             }.padding()
-                .aspectRatio(1.0, contentMode: .fill)
-                .foregroundColor(.white)
-                .background(Color.black)
-                .clipShape(Circle())
-        }.padding()
+                .background(Color.white)
+        }
+    }
+}
+
+struct LoginBackground: View {
+    
+    var body: some View {
+    
+        VStack {
+            Color.BrandBlue
+            Color.BrandOrange
+        }
     }
 }
 

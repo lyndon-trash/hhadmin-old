@@ -7,9 +7,15 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct K {
     static let BaseUrl = "https://api.dev.kwler.net"
     static let ClientUsername = "webapp"
     static let ClientPassword = "webapp_secret"
+}
+
+extension Color {
+    static let BrandBlue = Color("BrandBlue")
+    static let BrandOrange = Color("BrandOrange")
 }

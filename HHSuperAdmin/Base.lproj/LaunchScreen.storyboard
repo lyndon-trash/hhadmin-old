@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,17 +16,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Headhuntr.IO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjk-Ck-mhW">
-                                <rect key="frame" x="156" y="442.5" width="102" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="headhuntr.io" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjk-Ck-mhW">
+                                <rect key="frame" x="115.5" y="432.5" width="183.5" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <color key="textColor" name="BrandOrange"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginBg" translatesAutoresizingMaskIntoConstraints="NO" id="gUS-AK-IG4">
+                                <rect key="frame" x="87" y="296" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gUS-AK-IG4" secondAttribute="height" multiplier="15:8" id="5XZ-VF-XVq"/>
+                                    <constraint firstAttribute="height" constant="128" id="zk7-97-bDv"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="BrandBlue"/>
                         <constraints>
                             <constraint firstItem="Tjk-Ck-mhW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4PO-uy-iMQ"/>
+                            <constraint firstItem="Tjk-Ck-mhW" firstAttribute="top" secondItem="gUS-AK-IG4" secondAttribute="bottom" constant="8.5" id="fxv-6c-wFh"/>
                             <constraint firstItem="Tjk-Ck-mhW" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="gJh-6a-DqH"/>
+                            <constraint firstItem="gUS-AK-IG4" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="rRd-bz-KPJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -35,4 +45,13 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LoginBg" width="893" height="781"/>
+        <namedColor name="BrandBlue">
+            <color red="0.1217164025" green="0.17625787849999999" blue="0.27828329800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BrandOrange">
+            <color red="0.95760637520000003" green="0.58884125949999999" blue="0.32622718810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
