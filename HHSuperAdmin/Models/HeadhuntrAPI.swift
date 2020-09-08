@@ -16,6 +16,7 @@ class HeadhuntrAPI: ObservableObject {
     let loginUrl = "\(K.BaseUrl)/oauth/token"
     
     @Published var accessToken: String?
+    @Published var errorMessage: String?
     
     func login(username: String, password: String) {
         
@@ -31,8 +32,22 @@ class HeadhuntrAPI: ObservableObject {
             "password": password
         ]
         
-        AF.request(loginUrl, method: .post, parameters: parameters, headers: headers).response { response in
-            self.accessToken = response.debugDescription
+        AF.request(loginUrl, method: .post,
+                   parameters: parameters,
+                   headers: headers).responseJSON { response in
+            
+                    switch response.result {
+                    case .success(let result):
+                        if let json = result as? NSDictionary {
+                            if let errorDescription = json["error_description"] as? String {
+                                self.errorMessage = errorDescription
+                            } else if let accessToken = json["access_token"] as? String {
+                                self.accessToken = accessToken
+                            }
+                        }
+                    case .failure(let error):
+                        debugPrint(error)
+                    }
         }
     }
 }

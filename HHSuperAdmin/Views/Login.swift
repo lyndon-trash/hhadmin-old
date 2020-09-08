@@ -13,11 +13,15 @@ struct Login: View {
     @State var username: String = ""
     @State var password: String = ""
     
-    let api: HeadhuntrAPI = HeadhuntrAPI.shared
+    @ObservedObject var api: HeadhuntrAPI = HeadhuntrAPI.shared
     
     var body: some View {
         
         VStack(alignment: .center) {
+            
+            Text(api.errorMessage ?? " ")
+                .font(.caption)
+                .foregroundColor(.red)
             
             TextField("Username", text: $username)
                 .frame(maxWidth: 150)
