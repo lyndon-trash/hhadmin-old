@@ -8,12 +8,52 @@
 
 import SwiftUI
 
+let dashboardItems = [
+    "Roles",
+    "Companies"
+]
+
 struct Dashboard: View {
     
     var accessToken: String
     
     var body: some View {
-        Text("Todo: App Dashbaoard [\(accessToken)]")
+        NavigationView {
+            
+            MasterView().navigationBarTitle("Administration")
+            
+            DetailView(dasboardItem: dashboardItems[0])
+        }
+    }
+}
+
+struct MasterView: View {
+    
+    var body: some View {
+        List {
+            ForEach(dashboardItems, id: \.self) { item in
+                NavigationLink(
+                    destination: DetailView(dasboardItem: item)
+                ) {
+                    Text(item)
+                }
+            }
+        }
+    }
+}
+
+struct DetailView: View {
+    
+    let dasboardItem: String
+
+    var body: some View {
+        VStack(alignment: .center, spacing: 50) {
+            if dasboardItem == dashboardItems[0] {
+                SecurityRoleDashboard()
+            } else {
+                CompanyDashboard()
+            }
+        }
     }
 }
 

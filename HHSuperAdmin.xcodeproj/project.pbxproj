@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3582D8C486BDBF75AA2735A0 /* Pods_HHSuperAdmin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277EFEA92B47C0B0A5259F62 /* Pods_HHSuperAdmin.framework */; };
+		F0817F8225079AE5009EEC24 /* SecurityRoleDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0817F8125079AE5009EEC24 /* SecurityRoleDashboard.swift */; };
+		F0817F8425079B06009EEC24 /* CompanyDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0817F8325079B06009EEC24 /* CompanyDashboard.swift */; };
 		F0C3AE5F2507031B00707E90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C3AE5E2507031B00707E90 /* AppDelegate.swift */; };
 		F0C3AE612507031B00707E90 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C3AE602507031B00707E90 /* SceneDelegate.swift */; };
 		F0C3AE632507031B00707E90 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C3AE622507031B00707E90 /* ContentView.swift */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		277EFEA92B47C0B0A5259F62 /* Pods_HHSuperAdmin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HHSuperAdmin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33E7987C9D5D6ABDFC6FEEAC /* Pods-HHSuperAdmin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHSuperAdmin.debug.xcconfig"; path = "Target Support Files/Pods-HHSuperAdmin/Pods-HHSuperAdmin.debug.xcconfig"; sourceTree = "<group>"; };
+		F0817F8125079AE5009EEC24 /* SecurityRoleDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityRoleDashboard.swift; sourceTree = "<group>"; };
+		F0817F8325079B06009EEC24 /* CompanyDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDashboard.swift; sourceTree = "<group>"; };
 		F0C3AE5B2507031B00707E90 /* HHSuperAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHSuperAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0C3AE5E2507031B00707E90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0C3AE602507031B00707E90 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 			children = (
 				F0C3AE7425070AEF00707E90 /* Login.swift */,
 				F0F5CEEC25072A99006B0E47 /* Dashboard.swift */,
+				F0817F8125079AE5009EEC24 /* SecurityRoleDashboard.swift */,
+				F0817F8325079B06009EEC24 /* CompanyDashboard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -242,8 +248,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0817F8225079AE5009EEC24 /* SecurityRoleDashboard.swift in Sources */,
 				F0C3AE5F2507031B00707E90 /* AppDelegate.swift in Sources */,
 				F0C3AE612507031B00707E90 /* SceneDelegate.swift in Sources */,
+				F0817F8425079B06009EEC24 /* CompanyDashboard.swift in Sources */,
 				F0C3AE632507031B00707E90 /* ContentView.swift in Sources */,
 				F0F5CEEB2507103A006B0E47 /* K.swift in Sources */,
 				F0C3AE7725070B0D00707E90 /* HeadhuntrAPI.swift in Sources */,

@@ -8,15 +8,18 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class HeadhuntrAPI: ObservableObject {
     
     static let shared = HeadhuntrAPI()
     
     let loginUrl = "\(K.BaseUrl)/oauth/token"
+    let listRolesUrl = "\(K.BaseUrl)/api/securityRoles"
     
     @Published var accessToken: String?
     @Published var errorMessage: String?
+    @Published var securityRoles = [SecurityRole]()
     
     func login(username: String, password: String) {
         
@@ -43,11 +46,50 @@ class HeadhuntrAPI: ObservableObject {
                                 self.errorMessage = errorDescription
                             } else if let accessToken = json["access_token"] as? String {
                                 self.accessToken = accessToken
+                            } else {
+                                self.errorMessage = nil
+                                self.accessToken = nil
                             }
                         }
                     case .failure(let error):
                         debugPrint(error)
+                        self.errorMessage = nil
+                        self.accessToken = nil
                     }
         }
     }
+    
+    func findAllRoles() {
+        
+        guard accessToken != nil else {
+            return
+        }
+        
+        let headers: HTTPHeaders = [
+            .authorization(bearerToken: accessToken!),
+            .contentType("application/x-www-form-urlencoded")
+        ]
+        
+        AF.request(listRolesUrl, headers: headers).responseJSON { response in
+            
+            switch response.result {
+            case .success(let result):
+                let json = JSON(result)
+                let decoder = JSONDecoder()
+                if let securityRoles = try? decoder.decode([SecurityRole].self, from: json["_embedded"]["securityRoles"].rawData()) {
+                    self.securityRoles = securityRoles
+                }
+            case .failure(let error):
+                debugPrint(error)
+                self.errorMessage = nil
+                self.accessToken = nil
+            }
+        }
+    }
+}
+
+struct SecurityRole: Identifiable, Codable {
+    let id: Int64
+    let name: String
+    let description: String
 }
