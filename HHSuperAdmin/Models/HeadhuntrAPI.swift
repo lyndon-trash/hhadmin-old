@@ -16,10 +16,12 @@ class HeadhuntrAPI: ObservableObject {
     
     let loginUrl = "\(K.BaseUrl)/oauth/token"
     let listRolesUrl = "\(K.BaseUrl)/api/securityRoles"
+    let listCompanyAccountsUrl = "\(K.BaseUrl)/api/companyAccounts"
     
     @Published var accessToken: String?
     @Published var errorMessage: String?
     @Published var securityRoles = [SecurityRole]()
+    @Published var companyAccounts = [CompanyAccount]()
     
     func login(username: String, password: String) {
         
@@ -66,8 +68,7 @@ class HeadhuntrAPI: ObservableObject {
         }
         
         let headers: HTTPHeaders = [
-            .authorization(bearerToken: accessToken!),
-            .contentType("application/x-www-form-urlencoded")
+            .authorization(bearerToken: accessToken!)
         ]
         
         AF.request(listRolesUrl, headers: headers).responseJSON { response in
@@ -86,10 +87,42 @@ class HeadhuntrAPI: ObservableObject {
             }
         }
     }
+    
+    func findAllCompanyAccounts() {
+        
+        guard accessToken != nil else {
+            return
+        }
+        
+        let headers: HTTPHeaders = [
+            .authorization(bearerToken: accessToken!)
+        ]
+        
+        AF.request(listCompanyAccountsUrl, headers: headers).responseJSON { response in
+            
+            switch response.result {
+            case .success(let result):
+                let json = JSON(result)
+                let decoder = JSONDecoder()
+                if let companyAccounts = try? decoder.decode([CompanyAccount].self, from: json["_embedded"]["companyAccounts"].rawData()) {
+                    self.companyAccounts = companyAccounts
+                }
+            case .failure(let error):
+                debugPrint(error)
+                self.errorMessage = nil
+                self.accessToken = nil
+            }
+        }
+    }
 }
 
 struct SecurityRole: Identifiable, Codable {
     let id: Int64
     let name: String
     let description: String
+}
+
+struct CompanyAccount: Identifiable, Codable {
+    let id: Int64
+    let name: String
 }

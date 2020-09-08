@@ -9,8 +9,16 @@
 import SwiftUI
 
 struct CompanyDashboard: View {
+    
+    @ObservedObject var api = HeadhuntrAPI.shared
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(api.companyAccounts) { company in
+            Text(company.name)
+        }.navigationBarTitle("Company Accounts")
+            .onAppear {
+                self.api.findAllCompanyAccounts()
+        }
     }
 }
 
