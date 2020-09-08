@@ -9,9 +9,13 @@
 import Foundation
 import Alamofire
 
-class HeadhuntrAPI {
+class HeadhuntrAPI: ObservableObject {
+    
+    static let shared = HeadhuntrAPI()
     
     let loginUrl = "\(K.BaseUrl)/oauth/token"
+    
+    @Published var accessToken: String?
     
     func login(username: String, password: String) {
         
@@ -28,7 +32,7 @@ class HeadhuntrAPI {
         ]
         
         AF.request(loginUrl, method: .post, parameters: parameters, headers: headers).response { response in
-            debugPrint(response)
+            self.accessToken = response.debugDescription
         }
     }
 }

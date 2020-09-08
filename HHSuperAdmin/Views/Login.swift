@@ -13,7 +13,7 @@ struct Login: View {
     @State var username: String = ""
     @State var password: String = ""
     
-    let api: HeadhuntrAPI = HeadhuntrAPI()
+    let api: HeadhuntrAPI = HeadhuntrAPI.shared
     
     var body: some View {
         
@@ -21,11 +21,13 @@ struct Login: View {
             
             TextField("Username", text: $username)
                 .frame(maxWidth: 150)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
             
             SecureField("Password", text: $password)
-            .frame(maxWidth: 150)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .frame(maxWidth: 150)
             
             Button(action: {
                 self.api.login(username: self.username, password: self.password)

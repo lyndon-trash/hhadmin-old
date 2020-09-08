@@ -17,6 +17,7 @@
 		F0C3AE7525070AEF00707E90 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C3AE7425070AEF00707E90 /* Login.swift */; };
 		F0C3AE7725070B0D00707E90 /* HeadhuntrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C3AE7625070B0D00707E90 /* HeadhuntrAPI.swift */; };
 		F0F5CEEB2507103A006B0E47 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F5CEEA2507103A006B0E47 /* K.swift */; };
+		F0F5CEED25072A99006B0E47 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F5CEEC25072A99006B0E47 /* Dashboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		F0C3AE7425070AEF00707E90 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		F0C3AE7625070B0D00707E90 /* HeadhuntrAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadhuntrAPI.swift; sourceTree = "<group>"; };
 		F0F5CEEA2507103A006B0E47 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		F0F5CEEC25072A99006B0E47 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		FB88FB24D7A42772FC952D6F /* Pods-HHSuperAdmin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHSuperAdmin.release.xcconfig"; path = "Target Support Files/Pods-HHSuperAdmin/Pods-HHSuperAdmin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				F0C3AE7425070AEF00707E90 /* Login.swift */,
+				F0F5CEEC25072A99006B0E47 /* Dashboard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				F0C3AE632507031B00707E90 /* ContentView.swift in Sources */,
 				F0F5CEEB2507103A006B0E47 /* K.swift in Sources */,
 				F0C3AE7725070B0D00707E90 /* HeadhuntrAPI.swift in Sources */,
+				F0F5CEED25072A99006B0E47 /* Dashboard.swift in Sources */,
 				F0C3AE7525070AEF00707E90 /* Login.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
