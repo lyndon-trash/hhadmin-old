@@ -116,10 +116,26 @@ class HeadhuntrAPI: ObservableObject {
     }
 }
 
+struct AuditInformation: Codable {
+    let username: String
+    let date: String
+    let startOfDay: String
+    let name: String
+    let userId: Int64
+}
+
 struct SecurityRole: Identifiable, Codable {
     let id: Int64
     let name: String
     let description: String
+    let created: AuditInformation
+    let modified: AuditInformation
+    let activeUserCount: Int
+    let menuAccess: [String]
+    let hadUsers: Bool
+    let deletable: Bool
+    let `internal`: Bool
+    let admin: Bool
 }
 
 struct CompanyAccount: Identifiable, Codable {

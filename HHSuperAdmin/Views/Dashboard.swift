@@ -20,7 +20,7 @@ struct Dashboard: View {
     var body: some View {
         NavigationView {
             
-            MasterView().navigationBarTitle("Administration")
+            MasterView().navigationBarTitle("headhuntr.io")
             
             DetailView(dasboardItem: dashboardItems[0])
         }
