@@ -18,4 +18,5 @@ struct K {
 extension Color {
     static let BrandBlue = Color("BrandBlue")
     static let BrandOrange = Color("BrandOrange")
+    static let BrandGray = Color("BrandGray")
 }

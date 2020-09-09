@@ -19,34 +19,38 @@ struct Login: View {
         
         ZStack {
             LoginBackground()
-                .edgesIgnoringSafeArea(.all)
-            
+
             VStack(alignment: .center) {
+                
+                Text("LOGIN")
+                    .fontWeight(.heavy)
+                    .foregroundColor(.BrandBlue)
+                
+                Divider()
                 
                 Text(api.errorMessage ?? " ")
                     .font(.caption)
                     .foregroundColor(.red)
                 
                 TextField("Username", text: $username)
-                    .frame(maxWidth: 150)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
                 
                 SecureField("Password", text: $password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .frame(maxWidth: 150)
                 
                 Button(action: {
                     self.api.login(username: self.username, password: self.password)
                 }) {
                     Text("Login")
                 }.padding()
-                    .aspectRatio(1.0, contentMode: .fill)
+                    .frame(maxWidth: .infinity)
                     .foregroundColor(.white)
-                    .background(Color.black)
-                    .clipShape(Circle())
+                    .background(Color.BrandOrange)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
             }.padding()
+                .frame(maxWidth: 300)
                 .background(Color.white)
         }
     }
@@ -56,10 +60,10 @@ struct LoginBackground: View {
     
     var body: some View {
     
-        VStack {
+        VStack(spacing: 0.0) {
             Color.BrandBlue
-            Color.BrandOrange
-        }
+            Color.BrandGray
+        }.edgesIgnoringSafeArea(.all)
     }
 }
 
