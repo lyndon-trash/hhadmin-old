@@ -20,38 +20,49 @@ struct Login: View {
         ZStack {
             LoginBackground()
 
-            VStack(alignment: .center) {
+            VStack {
                 
-                Text("LOGIN")
-                    .fontWeight(.heavy)
-                    .foregroundColor(.BrandBlue)
+                Text("headhuntr.io")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(.BrandOrange)
+                    .padding()
                 
-                Divider()
-                
-                Text(api.errorMessage ?? " ")
-                    .font(.caption)
-                    .foregroundColor(.red)
-                
-                TextField("Username", text: $username)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .autocapitalization(.none)
-                    .disableAutocorrection(true)
-                
-                SecureField("Password", text: $password)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                
-                Button(action: {
-                    self.api.login(username: self.username, password: self.password)
-                }) {
-                    Text("Login")
+                VStack(alignment: .center) {
+                    
+                    Text("LOGIN")
+                        .fontWeight(.heavy)
+                        .foregroundColor(.BrandBlue)
+                    
+                    Divider()
+                    
+                    Text(api.errorMessage ?? " ")
+                        .font(.caption)
+                        .foregroundColor(.red)
+                    
+                    TextField("Username", text: $username)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
+                    
+                    SecureField("Password", text: $password)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    
+                    Button(action: {
+                        self.api.login(username: self.username, password: self.password)
+                    }) {
+                        Text("Login")
+                    }.padding()
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(.white)
+                        .background(Color.BrandOrange)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                    
                 }.padding()
-                    .frame(maxWidth: .infinity)
-                    .foregroundColor(.white)
-                    .background(Color.BrandOrange)
+                    .frame(maxWidth: 300)
+                    .background(Color.white)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
-            }.padding()
-                .frame(maxWidth: 300)
-                .background(Color.white)
+            }
         }
     }
 }
@@ -59,11 +70,19 @@ struct Login: View {
 struct LoginBackground: View {
     
     var body: some View {
-    
-        VStack(spacing: 0.0) {
-            Color.BrandBlue
-            Color.BrandGray
-        }.edgesIgnoringSafeArea(.all)
+        ZStack {
+            VStack(spacing: 0.0) {
+                ZStack {
+                    Color.BrandBlue
+                    Image("LoginBg")
+                        .resizable()
+                        .opacity(0.25)
+                }
+                
+                Color.BrandGray
+            }.edgesIgnoringSafeArea(.all)
+            
+        }
     }
 }
 
