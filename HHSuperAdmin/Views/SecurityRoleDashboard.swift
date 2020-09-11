@@ -48,11 +48,11 @@ struct SecurityRoleCell: View {
             VStack(alignment: .leading, spacing: 10) {
                 Text(role.name)
                     .font(.title)
-                    .foregroundColor(.BrandBlue)
+                    //.foregroundColor(.BrandBlue)
                 
                 Text(role.description)
                     .font(.caption)
-                    .foregroundColor(.BrandGray)
+                    //.foregroundColor(.BrandGray)
             }
         }
         
